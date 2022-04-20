@@ -19,6 +19,8 @@ namespace BookClub.Pages.Books
         }
 
         public Book Book { get; set; }
+        public String CategoryType { get; set; }
+        public String Category { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -33,6 +35,12 @@ namespace BookClub.Pages.Books
             {
                 return NotFound();
             }
+
+            CategoryType CategoryTypeObject = await _context.CategoryType.FirstOrDefaultAsync(m => m.Type == Book.CategoryId);
+            Category CategoryObject = await _context.Category.FirstOrDefaultAsync(m => m.CategoryId == CategoryTypeObject.Category);
+            Category = CategoryObject.NameToken;
+            CategoryType = CategoryTypeObject.Name;
+
             return Page();
         }
     }

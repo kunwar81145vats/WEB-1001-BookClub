@@ -21,6 +21,7 @@ namespace BookClub.Pages.Books
 
         [BindProperty]
         public Book Book { get; set; }
+        public IList<CategoryType> CategoryTypes { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,6 +31,7 @@ namespace BookClub.Pages.Books
             }
 
             Book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            CategoryTypes = await _context.CategoryType.ToListAsync();
 
             if (Book == null)
             {
@@ -65,7 +67,7 @@ namespace BookClub.Pages.Books
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
 
         private bool BookExists(int id)

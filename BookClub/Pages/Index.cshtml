@@ -1,9 +1,7 @@
 @page
 @model BookClub.Pages.Books.IndexModel
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <h1>Index</h1>
 
@@ -16,9 +14,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Title)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book[0].Category)
-            </th>
+            <th>Category</th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Author)
             </th>
@@ -26,23 +22,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Book) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                <a asp-page="Books/Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="Books/Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="Books/Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
+        @foreach (var item in Model.Book)
+        {
+
+            String categoryTypeName = "";
+
+@foreach (var type in Model.CategoryTypes)
+{
+    if (type.Type == item.CategoryId)
+    {
+        categoryTypeName = type.Name;
+    }
 }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => categoryTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        <a asp-page="Books/Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="Books/Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="Books/Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>}
     </tbody>
 </table>

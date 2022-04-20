@@ -18,11 +18,16 @@ namespace BookClub.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; }
+        public IList<Book> Book { get; set; }
+        public IList<CategoryType> CategoryTypes { get; set; }
+        public IList<Category> Categories { get; set; }
 
         public async Task OnGetAsync()
         {
             Book = await _context.Book.ToListAsync();
+            CategoryTypes = await _context.CategoryType.ToListAsync();
+            Categories = await _context.Category.ToListAsync();
+
         }
     }
 }

@@ -13,4 +13,6 @@ using BookClub.Models;
         }
 
         public DbSet<BookClub.Models.Book> Book { get; set; }
-    }
+        public DbSet<BookClub.Models.CategoryType> CategoryType { get; set; }
+        public DbSet<BookClub.Models.Category> Category { get; set; }
+}

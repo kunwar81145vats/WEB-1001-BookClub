@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kunwar/Projects/BookClub/BookClub/BookClub.csproj": {}
+    "/Users/kunwar/Documents/WEB-1001/BookClub/BookClub/BookClub.csproj": {}
   },
   "projects": {
-    "/Users/kunwar/Projects/BookClub/BookClub/BookClub.csproj": {
+    "/Users/kunwar/Documents/WEB-1001/BookClub/BookClub/BookClub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kunwar/Projects/BookClub/BookClub/BookClub.csproj",
+        "projectUniqueName": "/Users/kunwar/Documents/WEB-1001/BookClub/BookClub/BookClub.csproj",
         "projectName": "BookClub",
-        "projectPath": "/Users/kunwar/Projects/BookClub/BookClub/BookClub.csproj",
+        "projectPath": "/Users/kunwar/Documents/WEB-1001/BookClub/BookClub/BookClub.csproj",
         "packagesPath": "/Users/kunwar/.nuget/packages/",
-        "outputPath": "/Users/kunwar/Projects/BookClub/BookClub/obj/",
+        "outputPath": "/Users/kunwar/Documents/WEB-1001/BookClub/BookClub/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kunwar/.config/NuGet/NuGet.Config"

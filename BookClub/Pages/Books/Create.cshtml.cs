@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using BookClub.Models;
 
 namespace BookClub.Pages.Books
@@ -12,15 +13,21 @@ namespace BookClub.Pages.Books
     public class CreateModel : PageModel
     {
         private readonly RazorPagesBookContext _context;
+        public IList<CategoryType> CategoryTypes { get; set; }
 
         public CreateModel(RazorPagesBookContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet()
+        //public IActionResult OnGet()
+        //{
+        //    return Page();
+        //}
+
+        public async Task OnGetAsync()
         {
-            return Page();
+            CategoryTypes = await _context.CategoryType.ToListAsync();
         }
 
         [BindProperty]

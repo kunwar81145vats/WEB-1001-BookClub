@@ -20,9 +20,15 @@
                 <span asp-validation-for="Book.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.Category" class="control-label"></label>
-                <input asp-for="Book.Category" class="form-control" />
-                <span asp-validation-for="Book.Category" class="text-danger"></span>
+                <label asp-for="Book.CategoryId" class="control-label">Category Type</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Book.CategoryId,
+                                                       new SelectList(
+                                                           Model.CategoryTypes,
+                                                           "Type",
+                                                           "Name"))
+                </div>
+                <span asp-validation-for="Book.CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.Author" class="control-label"></label>
